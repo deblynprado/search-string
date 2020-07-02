@@ -10,8 +10,7 @@
   <meta name="googlebot" content="noindex, nofollow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="bingbot" content="noindex, nofollow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href="" />
-  
-  
+  <link rel="stylesheet" href="assets/css/style.css">
   
   <body class="">
     <!--[if IE]>
