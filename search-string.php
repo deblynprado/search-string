@@ -22,7 +22,7 @@ function set_invalidAddress( $url ) {
 
 function the_invalidAddress() {
   global $invalidAddress;
-  echo $invalidAddress;
+  echo count( $invalidAddress );
 }
 
 $notFound = array();
@@ -38,7 +38,7 @@ function set_notFound( $url ) {
 
 function the_notFound() {
   global $notFound;
-  echo $notFound;
+  echo count( $notFound );
 }
 
 $found = array();
@@ -54,7 +54,7 @@ function set_found( $url ) {
 
 function the_found() {
   global $found;
-  echo $found;
+  echo count( $found );
 }
 
 function clean_address( $url ) {
