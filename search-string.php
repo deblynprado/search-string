@@ -120,12 +120,3 @@ function search_in_page( $url, $sourceString, $searchString ) {
       set_invalidAddress( $url );
     endif;
   endforeach;
-
-echo "FOUND " . count( get_found() ) . "<br>";
-var_dump( get_found() );
-
-echo "NOT FOUND " . count( get_notFound() ) . "<br>";
-var_dump( get_notFound() );
-
-echo "INVALID " . count( get_invalidAddress() )  . "<br>";
-var_dump( get_invalidAddress() );
