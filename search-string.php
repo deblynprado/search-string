@@ -4,6 +4,8 @@ $websiteList = isset( $_POST['websites-textarea'] ) ? $_POST['websites-textarea'
 $pages = explode( "\n", str_replace( "\r", "", $websiteList ) );
 $totalWebsites = count( $pages );
 $invalidAddress = array();
+$notFound = array();
+$found = array();
 
 function clean_address( $url ) {
   $url = strtolower( $url );
@@ -18,12 +20,14 @@ function clean_address( $url ) {
   return $url;
 }
 
-function check_stats() {
-
-}
-
-function search_in_page() {
-  
+function search_in_page( $url, $sourceString, $searchString ) {
+  if ( strpos( $sourceString, $searchString ) == false ) :
+    global $notFound;
+    array_push( $notFound, $url );
+  else :
+    global $found;
+    array_push( $found, $url );
+  endif;
 }
 
 foreach ( $pages as $url ) :
@@ -34,14 +38,19 @@ foreach ( $pages as $url ) :
   $pageStats = curl_getinfo( $source,  CURLINFO_HTTP_CODE );
   
   if( 200 === $pageStats ) :
-    if ( strpos( $sourceString, $searchString ) == false ) { 
-      #echo $searchString . ' not exists in the URL ' . $url . '<br>'; 
-    }
-    
-    else { 
-      #echo $searchString . ' exists in the URL <br>'; 
-    }
+    search_in_page( $url, $sourceString, $searchString  );    
     else :
       array_push( $invalidAddress, $url );
   endif;
+endforeach;
+
+echo "String " . $searchString . " searched in " . count( $pages ) . " websites <br>";
+echo "• Found in " . count( $found ) . "<br>";
+echo "• Not foudn in " . count( $notFound ) . "<br>";
+foreach( $notFound as $uri ) :
+  echo $uri . "<br>";
+endforeach;
+echo "• " . count( $invalidAddress ) . " Invalid Addresses found <br>";
+foreach( $invalidAddress as $uri ) :
+  echo $uri . "<br>";
 endforeach;
