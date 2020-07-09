@@ -1,3 +1,10 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Circular Std",sans-serif;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
@@ -6,3 +13,73 @@
 .title,
 .desc,
 form { text-align: center; }
+
+header {
+  background-color: #000;
+  color: #fff;
+  font-family: "Circular Std",sans-serif;
+  padding: 10px 0;
+}
+
+form label { display: none; }
+
+form input,
+form input:active,
+form input:hover,
+form input:focus {
+  width: 80%;
+  border: none;
+  border-bottom: 2px solid #000;
+  font-size: 20px;
+  padding: 5px;
+  position: relative;
+}
+
+form textarea {
+  width: 80%;
+  border: 2px solid #000;
+  position: relative;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.step-1 {
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.step-1:after {
+  content: "<required>";
+  position: absolute;
+  top: 7px;
+  right: 10%;
+  color: #8f867e;
+}
+
+.submit-area { margin: 10px 0; }
+
+.submit-area input {
+  width: auto;
+  border: 2px solid transparent;
+  background: #8f867e;
+  color: #fff;
+  padding: 15px 60px;
+  transition: all .25s ease-out;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: "Circular Std" ,sans-serif;
+}
+
+.submit-area input:active,
+.submit-area input:hover,
+.submit-area input:focus {
+  width: auto;
+  border: 2px solid #000;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  padding: 15px 60px;
+  font-size: 16px;
+  font-family: "Circular Std" ,sans-serif;
+}
