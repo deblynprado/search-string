@@ -1,7 +1,7 @@
 <?php include( 'header.php' ); ?>
         <main class="main" role="main">
           <div class="container">
-            <form action="search-string.php" method="POST">
+            <form action="results.php" method="POST">
               <div class="step-1">
                 <label for="input-string">Search for...</label>
                 <input type="text" name="input-string" id="input-string" class="input-string" placeholder="String that you want to find" required/>
