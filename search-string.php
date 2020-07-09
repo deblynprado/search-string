@@ -101,6 +101,7 @@ function search_in_page( $url, $sourceString, $searchString ) {
     curl_setopt( $source, CURLOPT_RETURNTRANSFER, true );
     curl_exec( $source );
     $sourceString = curl_exec( $source );
+    curl_close ( $source );
     
     return $sourceString;
   }
