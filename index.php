@@ -28,15 +28,15 @@
         
         <main class="main" role="main">
           <div class="container">
-            <form action="#">
+            <form action="search-string.php" method="POST">
               <div class="step-1">
                 <label for="input-string">Search for...</label>
-                <input type="text" name="input-string" id="input-string" class="input-string" placeholder="String that you want to find" />
+                <input type="text" name="input-string" id="input-string" class="input-string" placeholder="String that you want to find" required/>
               </div>
               
               <div class="step-2">
                 <label for="websites-textarea">List of websites</label>
-                <textarea name="websites-textarea" id="websites-textarea" cols="50" rows="30"></textarea>
+                <textarea name="websites-textarea" id="websites-textarea" cols="50" rows="30" required></textarea>
               </div>
               
               <div class="submit-area">
