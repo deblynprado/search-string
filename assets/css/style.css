@@ -83,3 +83,26 @@ form textarea {
   font-size: 16px;
   font-family: "Circular Std" ,sans-serif;
 }
+
+.search-term { margin-top: 50px; }
+
+.term { font-weight: 600; }
+
+.sucess-results {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.unsucessfull-results {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.unsucessfull-results pre {
+  border: 2px solid #000;
+  padding: 0 15px 16px 15px;
+  line-height: 20px;
+  font-size: 15px;
+  background: #f1f1f1;
+}

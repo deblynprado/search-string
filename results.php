@@ -5,10 +5,10 @@ include( 'search-string.php' );
 
 <main role="main">
   <div class="container">
-    <p class="search-term">You searched for: <?php echo $searchString; ?> in <?php echo get_totalWebsites(); ?> pages.</p>
+    <p class="search-term">You searched for: <span class="term"><?php echo $searchString; ?></span> in <?php echo get_totalWebsites(); ?> pages.</p>
     
     <div class="sucess-results">
-      <p class="search-success">String was found in <?php the_found(); ?> websites.</p>
+      <p class="search-success">String was found in <?php the_found(); ?> websites. ✅ </p>
     </div>
 
     <div class="unsucessfull-results">
