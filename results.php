@@ -34,7 +34,7 @@ include( 'search-string.php' );
 
       <?php if( get_invalidAddress() ) : ?>
         <div class="search-invalid-address">
-          <p><?php the_invalidAddress() ?> URLs seems to be incorrect ⚠️</p>
+          <p><?php the_invalidAddress() ?> URLs need to be checked again ⚠️ </p>
           <pre>
             <?php foreach( get_invalidAddress() as $address ) : 
               echo "<br>" . $address;
