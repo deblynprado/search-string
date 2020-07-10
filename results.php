@@ -11,36 +11,39 @@ include( 'search-string.php' );
       <?php if( get_found() ) : ?>
       <div class="sucess-results">
         <p class="search-success">Found in <?php the_found(); ?> websites. ✅ </p>
-        <pre>
-            <?php foreach( get_found() as $address ) : 
-              echo "<br>" . $address;
-            endforeach;
-            ?>
-          </pre>
+        <ul>
+            <?php foreach( get_found() as $address ) : ?>
+              <li>
+                <a href="<?php echo $address ?>" target="_blank" rel="noopener noreferrer"><?php echo $address ?></a>
+              </li>
+            <?php endforeach; ?>
+        </ul>
       </div>
       <?php endif; ?>
 
       <?php if( get_notFound() ) : ?>
         <div class="search-not-found">
           <p>Not found in <?php the_notFound() ?> pages 🚫</p>
-          <pre>
-            <?php foreach( get_notFound() as $address ) : 
-              echo "<br>" . $address;
-            endforeach;
-            ?>
-          </pre>
+          <ul>
+            <?php foreach( get_notFound() as $address ) : ?>
+              <li>
+                <a href="<?php echo $address ?>" target="_blank" rel="noopener noreferrer"><?php echo $address ?></a>
+              </li>
+            <?php endforeach; ?>
+          </ul>
         </div>
       <?php endif; ?>
 
       <?php if( get_invalidAddress() ) : ?>
         <div class="search-invalid-address">
           <p><?php the_invalidAddress() ?> URLs need to be checked again ⚠️ </p>
-          <pre>
-            <?php foreach( get_invalidAddress() as $address ) : 
-              echo "<br>" . $address;
-            endforeach;
-            ?>
-          </pre>
+          <ul>
+            <?php foreach( get_invalidAddress() as $address ) : ?>
+              <li>
+                <a href="<?php echo $address ?>" target="_blank" rel="noopener noreferrer"><?php echo $address ?></a>
+              </li>
+            <?php endforeach; ?>
+          </ul>
         </div>
       <?php endif; ?>
     </div>
