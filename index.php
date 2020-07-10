@@ -1,7 +1,14 @@
 <?php include( 'header.php' ); ?>
         <main class="main" role="main">
+        <div id="loading-modal" class="modal-window">
+          <div>
+            <h1>We're performing your search!</h1>
+            <p>Please, be patient. This can take a while</p>
+          </div>
+        </div>
+
           <div class="container">
-            <form action="results.php" method="POST">
+            <form action="results.php" method="POST" id="strings-search">
               <div class="step-1">
                 <label for="input-string">Search for...</label>
                 <input type="text" name="input-string" id="input-string" class="input-string" placeholder="String that you want to find" required/>
@@ -13,7 +20,7 @@
               </div>
               
               <div class="submit-area">
-                <input type="submit" value="Search">
+                <a class="btn-submit" href="#loading-modal" onclick="document.getElementById('strings-search').submit();">Search</a>
               </div>
             </form>
           </div>
