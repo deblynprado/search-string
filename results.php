@@ -7,14 +7,22 @@ include( 'search-string.php' );
   <div class="container">
     <p class="search-term">You searched for: <span class="term"><?php echo $searchString; ?></span> in <?php echo get_totalWebsites(); ?> pages.</p>
     
-    <div class="sucess-results">
-      <p class="search-success">String was found in <?php the_found(); ?> websites. ✅ </p>
-    </div>
+    <div class="results">
+      <?php if( get_found() ) : ?>
+      <div class="sucess-results">
+        <p class="search-success">Found in <?php the_found(); ?> websites. ✅ </p>
+        <pre>
+            <?php foreach( get_found() as $address ) : 
+              echo "<br>" . $address;
+            endforeach;
+            ?>
+          </pre>
+      </div>
+      <?php endif; ?>
 
-    <div class="unsucessfull-results">
       <?php if( get_notFound() ) : ?>
         <div class="search-not-found">
-          <p>String wasn't found in <?php the_notFound() ?> pages </p>
+          <p>Not found in <?php the_notFound() ?> pages 🚫</p>
           <pre>
             <?php foreach( get_notFound() as $address ) : 
               echo "<br>" . $address;
@@ -26,7 +34,7 @@ include( 'search-string.php' );
 
       <?php if( get_invalidAddress() ) : ?>
         <div class="search-invalid-address">
-          <p><?php the_invalidAddress() ?> URLs seems to be incorrect </p>
+          <p><?php the_invalidAddress() ?> URLs need to be checked again ⚠️ </p>
           <pre>
             <?php foreach( get_invalidAddress() as $address ) : 
               echo "<br>" . $address;
@@ -35,7 +43,6 @@ include( 'search-string.php' );
           </pre>
         </div>
       <?php endif; ?>
-
     </div>
   </div>
 </main>
