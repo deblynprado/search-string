@@ -74,19 +74,6 @@ function the_found() {
   echo count( $found );
 }
 
-function clean_address( $url ) {
-  $url = strtolower( $url );
-  $http = strpos( $url, "http://" );
-  $https = strpos( $url, "https://" );
-  
-  if( $http === false && $https === false ) :
-    $newUrl = "http://" . $url;
-    return $newUrl;
-  endif;
-  
-  return $url;
-}
-
 function search_in_page( $url, $sourceString, $searchString ) {
   if ( strpos( $sourceString, $searchString ) == false ) :
     set_notFound( $url );
@@ -101,14 +88,13 @@ function search_string( $result ) {
       $pageContent = $result->body;
       global $searchString;
       search_in_page( $result->info['url'], $pageContent, $searchString );
-    else :
+      else :
         set_invalidAddress( $result->info['url'] );
     endif;
-    else : 
-      $invalid = $result->info['url'] . " - CODE: " . $result->info['http_code'];
-      set_invalidAddress( $invalid );
-      // set_invalidAddress( $result->info['url'] );
+  else :
+      set_invalidAddress( $result->info['url'] );
   endif;
   }
+
   $curl = new Zebra_cURL();
   $curl->get( $allPages, 'search_string' );
