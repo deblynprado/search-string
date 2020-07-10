@@ -97,4 +97,5 @@ function search_string( $result ) {
   }
 
   $curl = new Zebra_cURL();
+  $curl->threads = 20;
   $curl->get( $allPages, 'search_string' );
