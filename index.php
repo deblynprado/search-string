@@ -4,6 +4,7 @@
           <div>
             <h1>We're performing your search!</h1>
             <p>Please, be patient. This can take a while</p>
+            <p class="detective">🕵️‍♂️</p>
           </div>
         </div>
 

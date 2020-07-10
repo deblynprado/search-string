@@ -145,4 +145,7 @@ form textarea {
   background: #ffffff;
   text-align: center;
   height: 200px;
+  border: 3px solid #000;
 }
+
+.modal-window .detective { font-size: 35px; }
