@@ -105,46 +105,10 @@ function search_string( $result ) {
         set_invalidAddress( $result->info['url'] );
     endif;
     else : 
-      set_invalidAddress( $result->info['url'] );
+      $invalid = $result->info['url'] . " - CODE: " . $result->info['http_code'];
+      set_invalidAddress( $invalid );
+      // set_invalidAddress( $result->info['url'] );
   endif;
   }
   $curl = new Zebra_cURL();
   $curl->get( $allPages, 'search_string' );
-  
-  // function get_status( $url ) {
-  //   $source = curl_init( $url );
-  //   curl_setopt( $source, CURLOPT_URL, $url );
-  //   curl_setopt( $source, CURLOPT_HEADER, true );
-  //   curl_setopt( $source, CURLOPT_NOBODY, true );
-  //   curl_setopt( $source, CURLOPT_RETURNTRANSFER, true );
-  //   curl_exec( $source );
-  //   $pageStats = curl_getinfo( $source, CURLINFO_HTTP_CODE );
-  //   curl_close ( $source );
-    
-  //   return $pageStats;
-  // }
-  
-  // function returnSource( $url ) {
-  //   $source = curl_init( $url );
-  //   curl_setopt( $source, CURLOPT_RETURNTRANSFER, true );
-  //   curl_exec( $source );
-  //   $sourceString = curl_exec( $source );
-  //   curl_close ( $source );
-    
-  //   return $sourceString;
-  // }
-  
-  // foreach ( $allPages as $url ) :
-  //   $pageStats = get_status( clean_address( $url ) );
-    
-  //   if( 200 === $pageStats ) :
-  //     $sourceString = returnSource( $url );
-  //     search_in_page( $url, $sourceString, $searchString  );
-  //   elseif( 301 === $pageStats || 302 === $pageStats) :
-  //     $url = sslProtocol( $url );
-  //     $sourceString = returnSource( $url );
-  //     search_in_page( $url, $sourceString, $searchString  );
-  //   else : 
-  //     set_invalidAddress( $url );
-  //   endif;
-  // endforeach;
