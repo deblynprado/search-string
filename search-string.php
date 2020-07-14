@@ -75,6 +75,9 @@ function the_found() {
 }
 
 function search_in_page( $url, $sourceString, $searchString ) {
+  $sourceString = strtolower( $sourceString );
+  $searchString = strtolower( $searchString );
+
   if ( strpos( $sourceString, $searchString ) == false ) :
     set_notFound( $url );
     else :
