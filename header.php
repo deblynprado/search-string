@@ -21,7 +21,7 @@
         
         <header class="header" role="header">
           <div class="container">
-            <h1 class="title">Search String Tool</h1>
+            <h1 class="title"><a href="<?php echo (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/' ?>">Search String Tool</a></h1>
             <p class="desc">This tool helps you to find a specific string in any website</p>
           </div>
         </header>
