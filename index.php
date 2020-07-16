@@ -1,3 +1,5 @@
+<?php define( 'ROOT', 'http://tests/') ?>
+
 <?php include( 'header.php' ); ?>
         <main class="main" role="main">
         <div id="loading-modal" class="modal-window">
