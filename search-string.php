@@ -83,7 +83,7 @@ function search_in_page( $url, $sourceString, $searchString ) {
     else :
       set_found( $url );
     endif;
-  }
+}
 
 function search_string( $result ) {
   if ( $result->response[1] == CURLE_OK ) :
