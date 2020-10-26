@@ -16,6 +16,8 @@ function run( $result, $string ) {
   $curl->get( $result, 'search_string' );
 
   http_response_code( 200 );
+  $json['status'] = 200;
+  $json['message'] = "Search complete successfully.";
   echo json_encode( $json );
 }
 
