@@ -4,7 +4,7 @@
 
   include_once 'search-string.php';
   
-  if ($_SERVER['REQUEST_METHOD'] != 'POST') :
+  if ( $_SERVER['REQUEST_METHOD'] != 'POST' ) :
     set_response( 405, $validation['method_not_allowed'] );
     return;
   endif;
