@@ -97,7 +97,7 @@ function search_string( $result ) {
   else :
       set_invalidAddress( $result->info['url'] );
   endif;
-  }
+}
 
   $curl = new Zebra_cURL();
   $curl->threads = 20;

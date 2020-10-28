@@ -2,6 +2,7 @@
 
 require( '../vendor/zebra_curl.php' );
 
+$validation = require( 'validation.php' );
 $searchString = "";
 $json = array();
 $json['result'] = array();
@@ -9,16 +10,14 @@ $json['result'] = array();
 function run( $result, $string ) {
   global $searchString; 
   global $json; 
+  global $validation;
   $searchString = $string;
 
   $curl = new Zebra_cURL();
   $curl->threads = 20;
   $curl->get( $result, 'search_string' );
 
-  http_response_code( 200 );
-  $json['status'] = 200;
-  $json['message'] = "Search complete successfully.";
-  echo json_encode( $json );
+  set_response( 200, $validation['search_complete'], $json );
 }
 
 function search_string( $result ) {
@@ -57,6 +56,14 @@ function set_item_result( $url, $stringSearch, $status ) {
     "string_search" => $stringSearch,
     "status" => $status
   );
+}
+
+function set_response( $status, $msg, $json = null ) {
+  http_response_code( $status );
+  if ( is_null( $json ) ) $json = array();
+  $json['status'] = $status;
+  $json['message'] = $msg;
+  echo json_encode( $json );
 }
 
 

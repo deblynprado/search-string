@@ -2,27 +2,27 @@
   header( "Access-Control-Allow-Origin: *" );
   header( "Content-Type: application/json; charset=UTF-8" );
 
-  if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-    http_response_code( 405 );
-    echo json_encode( array(
-      "status" => 405,
-      "message" => "Request method not allowed.",
-    ) );
+  include_once 'search-string.php';
+  
+  if ($_SERVER['REQUEST_METHOD'] != 'POST') :
+    set_response( 405, $validation['method_not_allowed'] );
     return;
-  }
+  endif;
 
-  if ( isset( $_POST['url'] ) ) {
-    if ( !is_array( $_POST['url'] ) ) {
-      http_response_code( 406 );
-      echo json_encode( array(
-        "status" => 406,
-        "message" => "Expects parameter url to be array",
-      ) );
+  if ( isset( $_POST['url'] ) ) :
+    if ( !is_array( $_POST['url'] ) ) :
+      set_response( 406, $validation['invalid_url'] );
       return;
-    }
-  }
+    endif;
+  else :
+    set_response( 406, $validation['empty_url'] );
+    return;
+  endif;
 
-  include_once 'search.php';
+  if ( !isset( $_POST['q'] )) :
+    set_response( 406, $validation['empty_q'] );
+    return;
+  endif;
 
   $url = isset( $_POST['url'] ) ? $_POST['url'] : '';
   $q = isset( $_POST['q'] ) ? $_POST['q'] : '';
